@@ -6,23 +6,22 @@
     <form action="/auth/register" method="POST">
       <h1>Sign up</h1>
       <div class="input-field">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email..." />
+        <input type="email" id="email" name="email" placeholder="Your email" />
       </div>
       <div class="input-field">
-        <label for="username">Username</label>
         <input
-          type="username"
+          type="text"
           id="username"
-          placeholder="Enter your username..."
+          name="username"
+          placeholder="Your username"
         />
       </div>
       <div class="input-field">
-        <label for="password">Password</label>
         <input
           type="password"
           id="password"
-          placeholder="Enter your password..."
+          name="password"
+          placeholder="Your password..."
         />
       </div>
       <button type="submit">Submit</button>

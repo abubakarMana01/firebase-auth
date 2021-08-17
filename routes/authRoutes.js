@@ -17,14 +17,12 @@ router.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     const student = {
       email: req.body.email,
-      name: req.body.name,
-      ID: req.body.ID,
-      age: req.body.age,
+      name: req.body.username,
       password: hashedPassword,
     };
 
     await db.collection("students").add(student);
-    res.send("Student added to db");
+    res.redirect("login");
   } catch (err) {
     res.status(400).send(err.message);
   }
@@ -48,8 +46,8 @@ router.post("/login", async (req, res) => {
     );
 
     if (!isValid) return res.status(400).send("Password is invalid");
-    // res.send(`Logged in as ${user.docs[0].data().name}.`);
-    res.redirect("home");
+    // res.send(`Logged in as ${snapshot.docs[0].data().name}.`);
+    res.render("home");
   } catch (err) {
     res.status(400).send(err.message);
   }
